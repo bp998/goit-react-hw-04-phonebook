@@ -3,6 +3,7 @@ import ContactForm from './ContactForm';
 import Filter from './Filter';
 import ContactList from './ContactList';
 import { nanoid } from 'nanoid';
+import css from './App.module.css';
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
@@ -65,13 +66,13 @@ const App = () => {
   };
 
   return (
-    <>
+    <div className={css.card}>
       <h1>Phonebook</h1>
       <ContactForm onSubmit={handleSubmit} />
       <h2>Contacts</h2>
       <Filter onChange={handleFilter} filter={filter} />
       <ContactList contacts={filteredContacts()} onClick={handleDelete} />
-    </>
+    </div>
   );
 };
 
